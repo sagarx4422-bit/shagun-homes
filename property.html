@@ -1050,11 +1050,27 @@
             grid-template-columns: none !important;
         }
 
+        .mobile-marquee-track:hover,
+        .mobile-marquee-track:active {
+            animation-play-state: paused;
+        }
+
         .mobile-marquee-item {
-            flex: 0 0 260px !important;
-            min-width: 260px !important;
             border-right: none !important;
             height: 100% !important;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mobile-marquee-item.stat-card {
+            flex: 0 0 160px !important;
+            min-width: 160px !important;
+        }
+
+        .mobile-marquee-item.value-card {
+            flex: 0 0 300px !important;
+            min-width: 300px !important;
+            padding: 24px !important;
         }
 
         .mobile-marquee-dup {

@@ -1050,11 +1050,27 @@
             grid-template-columns: none !important;
         }
 
+        .mobile-marquee-track:hover,
+        .mobile-marquee-track:active {
+            animation-play-state: paused;
+        }
+
         .mobile-marquee-item {
-            flex: 0 0 260px !important;
-            min-width: 260px !important;
             border-right: none !important;
             height: 100% !important;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mobile-marquee-item.stat-card {
+            flex: 0 0 160px !important;
+            min-width: 160px !important;
+        }
+
+        .mobile-marquee-item.value-card {
+            flex: 0 0 300px !important;
+            min-width: 300px !important;
+            padding: 24px !important;
         }
 
         .mobile-marquee-dup {
@@ -1322,7 +1338,8 @@
     style="border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); padding: 60px 0; background: white;">
     <div class="container reveal stat-group mobile-marquee">
         <div class="mobile-marquee-track" style="display: grid; grid-template-columns: repeat(4, 1fr);">
-            <div class="mobile-marquee-item" style="text-align: center; border-right: 1px solid var(--border-color);">
+            <div class="mobile-marquee-item stat-card"
+                style="text-align: center; border-right: 1px solid var(--border-color);">
                 <div
                     style="font-family: var(--font-serif); font-size: 52px; font-style: italic; color: var(--brand-green); line-height: 1;">
                     <span class="stat-num-val" data-target="100">0</span>%
@@ -1330,7 +1347,8 @@
                 <div style="font-size: 13px; font-weight: 500; color: var(--text-muted); margin-top: 8px;">Satisfaction
                     Clients</div>
             </div>
-            <div class="mobile-marquee-item" style="text-align: center; border-right: 1px solid var(--border-color);">
+            <div class="mobile-marquee-item stat-card"
+                style="text-align: center; border-right: 1px solid var(--border-color);">
                 <div
                     style="font-family: var(--font-serif); font-size: 52px; font-style: italic; color: var(--brand-green); line-height: 1;">
                     <span class="stat-num-val" data-target="500">0</span>+
@@ -1338,7 +1356,8 @@
                 <div style="font-size: 13px; font-weight: 500; color: var(--text-muted); margin-top: 8px;">Property
                     Sells</div>
             </div>
-            <div class="mobile-marquee-item" style="text-align: center; border-right: 1px solid var(--border-color);">
+            <div class="mobile-marquee-item stat-card"
+                style="text-align: center; border-right: 1px solid var(--border-color);">
                 <div
                     style="font-family: var(--font-serif); font-size: 52px; font-style: italic; color: var(--brand-green); line-height: 1;">
                     <span class="stat-num-val" data-target="150">0</span>+
@@ -1346,7 +1365,7 @@
                 <div style="font-size: 13px; font-weight: 500; color: var(--text-muted); margin-top: 8px;">Cities
                     Covered</div>
             </div>
-            <div class="mobile-marquee-item" style="text-align: center;">
+            <div class="mobile-marquee-item stat-card" style="text-align: center;">
                 <div
                     style="font-family: var(--font-serif); font-size: 52px; font-style: italic; color: var(--brand-green); line-height: 1;">
                     <span class="stat-num-val" data-target="12">0</span>+
@@ -1355,7 +1374,7 @@
                     Trust</div>
             </div>
             <!-- Duplicates for mobile carousel -->
-            <div class="mobile-marquee-item mobile-marquee-dup"
+            <div class="mobile-marquee-item stat-card mobile-marquee-dup"
                 style="text-align: center; border-right: 1px solid var(--border-color);">
                 <div
                     style="font-family: var(--font-serif); font-size: 52px; font-style: italic; color: var(--brand-green); line-height: 1;">
