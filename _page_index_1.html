@@ -1,0 +1,207 @@
+<!-- Hero Section -->
+<section class="hero bg-dark"
+    style="background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=80') center/cover no-repeat; margin-top: 0; height: 100vh; min-height: 720px; align-items: center; position: relative;">
+    <div
+        style="position: absolute; inset: 0; background: linear-gradient(to right, rgba(15,31,19,0.85) 0%, rgba(15,31,19,0.4) 100%); z-index: 1;">
+    </div>
+    <div class="hero-content"
+        style="z-index: 2; position: absolute; bottom: 40px; left: 5%; right: 5%; max-width: 1200px; display: flex; flex-direction: column; align-items: flex-start; gap: 40px; margin: 0;">
+        <div style="max-width: 800px;" class="reveal">
+            <h1 style="color: white; font-size: clamp(40px, 5vw, 64px); line-height: 1.1; margin-bottom: 16px;">Build
+                Your Future, One<br>Property at a Time.</h1>
+            <p style="font-size: 16px; color: rgba(255,255,255,0.8); max-width: 520px; line-height: 1.7;">Own One
+                Property at a Time. Own Your World. One Property at a Time. Own Your World. One Property at a Time.
+            </p>
+        </div>
+
+        <!-- Floating Search Card -->
+        <div class="reveal"
+            style="background: white; border-radius: 12px; padding: 24px; box-shadow: var(--shadow-modal); max-width: 910px; width: 100%;">
+            <div
+                style="font-size: 13px; font-weight: 700; color: var(--brand-green); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px;">
+                &#128269; Find the best place</div>
+            <div style="display: flex; gap: 16px; align-items: stretch; flex-wrap: wrap;">
+                <div style="flex: 1; min-width: 140px;">
+                    <label style="color: var(--text-muted); font-size: 11px; margin-bottom: 4px;">Looking
+                        for</label>
+                    <select
+                        style="padding: 12px; border: 1px solid var(--border-color); border-radius: 8px; font-size: 14px; background-color: var(--bg-secondary);">
+                        <option>1 BHK Flat</option>
+                        <option>2 BHK Flat</option>
+                    </select>
+                </div>
+                <div style="flex: 1; min-width: 140px;">
+                    <label style="color: var(--text-muted); font-size: 11px; margin-bottom: 4px;">Price</label>
+                    <select
+                        style="padding: 12px; border: 1px solid var(--border-color); border-radius: 8px; font-size: 14px; background-color: var(--bg-secondary);">
+                        <option>Below &#8377;40L</option>
+                        <option>&#8377;40L &ndash; &#8377;55L</option>
+                        <option>&#8377;55L &ndash; &#8377;70L</option>
+                        <option>Above &#8377;70L</option>
+                    </select>
+                </div>
+                <div style="flex: 1; min-width: 150px;">
+                    <label style="color: var(--text-muted); font-size: 11px; margin-bottom: 4px;">Locations</label>
+                    <select
+                        style="padding: 12px; border: 1px solid var(--border-color); border-radius: 8px; font-size: 14px; background-color: var(--bg-secondary);">
+                        <option>Kalyan East</option>
+                        <option>Kalyan West</option>
+                        <option>Dombivali East</option>
+                        <option>Dombivali West</option>
+                    </select>
+                </div>
+                <div style="flex: 1; min-width: 100px;">
+                    <label style="color: var(--text-muted); font-size: 11px; margin-bottom: 4px;">Rooms</label>
+                    <select
+                        style="padding: 12px; border: 1px solid var(--border-color); border-radius: 8px; font-size: 14px; background-color: var(--bg-secondary);">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3+</option>
+                    </select>
+                </div>
+                <button class="btn-primary"
+                    style="padding: 0 32px; height: 46px; min-width: 160px; border-radius: 8px; font-size: 14px; align-self: flex-end;"
+                    onclick="window.location.href='properties.html'">Search Properties &rarr;</button>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<!-- Intro Split Section (Bento Layout) -->
+<section class="section" style="padding: 100px 0;">
+    <div class="container reveal">
+        <div style="display: flex; flex-direction: column; gap: 40px;">
+            <!-- Top row -->
+            <div
+                style="display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; flex-wrap: wrap;">
+                <h2
+                    style="font-family: var(--font-serif); font-size: clamp(40px, 5vw, 64px); line-height: 1.1; color: var(--text-heading); max-width: 600px; margin: 0; letter-spacing: -0.5px;">
+                    Modern Living<br>Redefined.
+                </h2>
+                <p
+                    style="font-size: 16px; color: var(--text-body); margin: 0; line-height: 1.6; font-weight: 400; max-width: 380px;">
+                    Discover the finest selection of premium homes in Kalyan and Dombivali, handpicked for exceptional
+                    quality, modern amenities, and prime locations.
+                </p>
+            </div>
+
+            <!-- Grid row -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;"
+                class="bento-layout">
+                <style>
+                    /* Inline style to handle the specific bento layout for desktop */
+                    @media (min-width: 1024px) {
+                        .bento-layout {
+                            grid-template-columns: 2.2fr 1.1fr 1.2fr !important;
+                        }
+                    }
+                </style>
+                <!-- Left large image -->
+                <div
+                    style="border-radius: 32px; overflow: hidden; position: relative; min-height: 400px; box-shadow: var(--shadow-card);">
+                    <img src="https://images.unsplash.com/photo-1593696140826-c58b021acf8b?w=1200&q=80"
+                        alt="Indian Home Flat"
+                        style="width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0;">
+                    <!-- Little thumbnails pill -->
+                    <div
+                        style="position: absolute; bottom: 24px; right: 24px; background: rgba(255, 255, 255, 0.9); padding: 8px; border-radius: 100px; display: flex; gap: 8px; align-items: center; box-shadow: 0 4px 12px rgba(0,0,0,0.1); backdrop-filter: blur(4px);">
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=100&q=80" alt="Thumb 1"
+                            style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid white;">
+                        <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=100&q=80" alt="Thumb 2"
+                            style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid white; margin-left: -12px;">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=100&q=80" alt="Thumb 3"
+                            style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid white; margin-left: -12px;">
+                    </div>
+                </div>
+
+                <!-- Center content card -->
+                <div
+                    style="background: var(--bg-secondary); border-radius: 32px; padding: 48px 32px; display: flex; flex-direction: column; align-items: center; text-align: center; justify-content: center;">
+                    <h3
+                        style="font-family: var(--font-sans); font-size: 28px; font-weight: 500; color: var(--text-heading); margin-bottom: 20px; line-height: 1.2;">
+                        Big things can happen in small spaces.
+                    </h3>
+                    <p style="font-size: 15px; color: var(--text-body); margin-bottom: 32px; line-height: 1.6;">
+                        With thoughtful design and smart organization, you can maximize every inch of your living area,
+                        creating room for boundless creativity and comfort.
+                    </p>
+                    <a href="about.html"
+                        style="display: inline-flex; align-items: center; justify-content: center; padding: 12px 32px; background: white; border: 1px solid var(--border-color); border-radius: 100px; color: var(--text-heading); font-weight: 500; font-size: 14px; transition: 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.02);"
+                        onmouseover="this.style.borderColor='var(--text-heading)'; this.style.color='var(--text-heading)'"
+                        onmouseout="this.style.borderColor='var(--border-color)'; this.style.color='var(--text-heading)'">
+                        Details
+                    </a>
+                </div>
+
+                <!-- Right image card -->
+                <div
+                    style="background: var(--bg-secondary); border-radius: 32px; padding: 16px; display: flex; flex-direction: column;">
+                    <div
+                        style="flex: 1; border-radius: 20px; overflow: hidden; margin-bottom: 24px; min-height: 220px; box-shadow: var(--shadow-card);">
+                        <!-- Reusing the indian_luxury_apartment here -->
+                        <img src="indian_luxury_apartment.png" alt="Luxury Apartment"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div style="text-align: center; padding-bottom: 12px;">
+                        <div
+                            style="font-size: 18px; color: var(--text-heading); font-weight: 500; margin-bottom: 16px;">
+                            Pricing Start at <span style="font-weight: 600;">₹38.99L</span>
+                        </div>
+                        <a href="properties.html"
+                            style="background: #0F1F13; color: white; padding: 14px 24px; border-radius: 100px; font-weight: 500; font-size: 14px; display: inline-flex; align-items: center; gap: 8px; justify-content: center; width: calc(100% - 16px); transition: 0.3s;"
+                            onmouseover="this.style.transform='translateY(-2px)';"
+                            onmouseout="this.style.transform='translateY(0)';">
+                            Explore Properties <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Stats Bar -->
+<section
+    style="border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); padding: 60px 0; background: white;">
+    <div class="container reveal stat-group">
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr);">
+            <div style="text-align: center; border-right: 1px solid var(--border-color);">
+                <div
+                    style="font-family: var(--font-serif); font-size: 52px; font-style: italic; color: var(--brand-green); line-height: 1;">
+                    <span class="stat-num-val" data-target="100">0</span>%
+                </div>
+                <div style="font-size: 13px; font-weight: 500; color: var(--text-muted); margin-top: 8px;">Satisfaction
+                    Clients</div>
+            </div>
+            <div style="text-align: center; border-right: 1px solid var(--border-color);">
+                <div
+                    style="font-family: var(--font-serif); font-size: 52px; font-style: italic; color: var(--brand-green); line-height: 1;">
+                    <span class="stat-num-val" data-target="500">0</span>+
+                </div>
+                <div style="font-size: 13px; font-weight: 500; color: var(--text-muted); margin-top: 8px;">Property
+                    Sells</div>
+            </div>
+            <div style="text-align: center; border-right: 1px solid var(--border-color);">
+                <div
+                    style="font-family: var(--font-serif); font-size: 52px; font-style: italic; color: var(--brand-green); line-height: 1;">
+                    <span class="stat-num-val" data-target="150">0</span>+
+                </div>
+                <div style="font-size: 13px; font-weight: 500; color: var(--text-muted); margin-top: 8px;">Cities
+                    Covered</div>
+            </div>
+            <div style="text-align: center;">
+                <div
+                    style="font-family: var(--font-serif); font-size: 52px; font-style: italic; color: var(--brand-green); line-height: 1;">
+                    <span class="stat-num-val" data-target="12">0</span>+
+                </div>
+                <div style="font-size: 13px; font-weight: 500; color: var(--text-muted); margin-top: 8px;">Years of
+                    Trust</div>
+            </div>
+        </div>
+    </div>
+</section>
