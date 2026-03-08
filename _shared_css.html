@@ -967,15 +967,17 @@
     .mobile-menu {
         position: fixed;
         top: 100px;
+        bottom: 0;
         left: 0;
         width: 100%;
         background: white;
-        border-radius: 0 0 16px 16px;
+        border-radius: 0;
         box-shadow: var(--shadow-modal);
         display: none;
         flex-direction: column;
         z-index: 999;
         padding-bottom: 24px;
+        overflow-y: auto;
     }
 
     .mobile-menu.open {
