@@ -1081,6 +1081,12 @@
             /* Firefox */
         }
 
+        /* Disable snapping during JS auto-scroll to prevent fight */
+        .mobile-marquee-track.is-autoscrolling {
+            scroll-snap-type: none !important;
+            scroll-behavior: auto !important;
+        }
+
         .mobile-marquee-track::-webkit-scrollbar {
             display: none;
             /* WebKit */
@@ -2080,18 +2086,20 @@
     // Auto-scrolling Mobile Marquees (Swipeable + Infinite loop)
     function initCarousels() {
         document.querySelectorAll('.mobile-marquee-track').forEach(track => {
-            // Skip if already initialized
+            // Skip if already initialized or if on desktop (scrollWidth <= offsetWidth)
             if (track.dataset.carouselInit) return;
+
+            const children = Array.from(track.children);
+            if (children.length === 0) return;
+
             track.dataset.carouselInit = 'true';
 
-            if (track.children.length === 0) return;
+            // Function to setup autoscroll
+            const setup = () => {
+                const origChildren = Array.from(track.children).filter(c => !c.dataset.cloned);
+                if (origChildren.length === 0) return;
 
-            const origChildren = Array.from(track.children);
-
-            // Record original content width BEFORE cloning
-            // Wait for layout, then measure
-            requestAnimationFrame(() => {
-                // Clone children 3 times for seamless looping
+                // 1. Clone items 3 times for a seamless loop
                 for (let i = 0; i < 3; i++) {
                     origChildren.forEach(child => {
                         const clone = child.cloneNode(true);
@@ -2101,54 +2109,63 @@
                     });
                 }
 
-                // Measure after cloning. The original set is 1/4 of total (3 extra copies).  
+                // 2. State & Constants
+                let isTouching = false;
+                const scrollSpeed = 0.9; // Slightly faster for smoother appearance
+                let accumulator = 0;
+
+                // The point where we jump back: end of original set
                 const loopPoint = track.scrollWidth / 4;
 
-                let isTouching = false;
+                // 3. Handlers
+                track.addEventListener('touchstart', () => {
+                    isTouching = true;
+                    track.classList.remove('is-autoscrolling');
+                }, { passive: true });
 
-                track.addEventListener('touchstart', () => { isTouching = true; }, { passive: true });
                 track.addEventListener('touchend', () => {
                     setTimeout(() => {
                         isTouching = false;
-                    }, 1500);
-                });
-                track.addEventListener('scroll', () => {
-                    // If manually swiped past the loop point, reset
-                    if (!isTouching && track.scrollLeft >= track.scrollWidth - track.offsetWidth - 10) {
-                        track.scrollLeft = 0;
-                    }
+                        // Class is added back in the step() function
+                    }, 1000);
                 });
 
-                let accumulator = 0;
-                const scrollSpeed = 0.7;
-
+                // 4. Animation Step
                 function step() {
                     if (!isTouching) {
+                        track.classList.add('is-autoscrolling'); // Enable smooth JS scroll
+
                         accumulator += scrollSpeed;
                         if (accumulator >= 1) {
-                            track.scrollLeft += Math.floor(accumulator);
-                            accumulator -= Math.floor(accumulator);
+                            const move = Math.floor(accumulator);
+                            track.scrollLeft += move;
+                            accumulator -= move;
                         }
 
-                        // Seamlessly loop: when past original content, jump back invisibly
+                        // Seamless loop: if past original content, jump back
                         if (track.scrollLeft >= loopPoint) {
                             track.scrollLeft -= loopPoint;
                         }
+                    } else {
+                        track.classList.remove('is-autoscrolling'); // Enable CSS snap-scrolling
                     }
                     requestAnimationFrame(step);
                 }
 
-                setTimeout(() => requestAnimationFrame(step), 500);
-            });
+                requestAnimationFrame(step);
+            };
+
+            // Wait for everything to be ready before measuring
+            if (document.readyState === 'complete') {
+                setup();
+            } else {
+                window.addEventListener('load', setup);
+            }
         });
     }
 
-    // Run on page load (not DOMContentLoaded, to ensure images/layout is ready)
-    if (document.readyState === 'complete') {
-        initCarousels();
-    } else {
-        window.addEventListener('load', initCarousels);
-    }
+    // Call init
+    initCarousels();
 </script>
 </body>
 </html>
