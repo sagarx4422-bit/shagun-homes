@@ -1034,6 +1034,18 @@
             padding: 0 24px;
         }
 
+        .navbar {
+            height: 70px !important;
+        }
+
+        .nav-logo img {
+            height: 50px !important;
+        }
+
+        .mobile-menu {
+            top: 70px !important;
+        }
+
         /* Mobile Scrollable Horizontal Carousels */
         .mobile-marquee {
             width: 100vw !important;
@@ -1068,6 +1080,15 @@
             flex-shrink: 0;
             display: flex;
             flex-direction: column;
+        }
+
+        /* Make Testimonial cards swipeable inside marquee wrapper */
+        .mobile-marquee-track>.testi-card {
+            width: 85vw !important;
+            min-width: 280px;
+            scroll-snap-align: center;
+            flex-shrink: 0;
+            margin-bottom: 0 !important;
         }
 
         .mobile-marquee-item.stat-card {
@@ -1665,94 +1686,97 @@
             </div>
         </div>
 
-        <div class="testi-grid" id="reviews-grid">
-            <!-- Review 1 -->
-            <div class="testi-card">
-                <div class="testi-quote-mark">&rdquo;</div>
-                <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                <p class="testi-text">"Working with Ajay Patil and the team was an absolute pleasure. They truly
-                    understood our vision for a dream home and helped us find a property that exceeded all our
-                    expectations."</p>
-                <div class="testi-author">
-                    <div class="testi-avatar">M</div>
-                    <div>
-                        <div class="testi-name">Mishra Family</div>
-                        <div class="testi-meta">Verified Buyer &middot; Kalyan East</div>
+        <div class="mobile-marquee" style="width: 100%;">
+            <div class="testi-grid mobile-marquee-track" id="reviews-grid">
+                <!-- Review 1 -->
+                <div class="testi-card mobile-marquee-item">
+                    <div class="testi-quote-mark">&rdquo;</div>
+                    <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="testi-text">"Working with Ajay Patil and the team was an absolute pleasure. They truly
+                        understood our vision for a dream home and helped us find a property that exceeded all our
+                        expectations."</p>
+                    <div class="testi-author">
+                        <div class="testi-avatar">M</div>
+                        <div>
+                            <div class="testi-name">Mishra Family</div>
+                            <div class="testi-meta">Verified Buyer &middot; Kalyan East</div>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Review 2 -->
-            <div class="testi-card">
-                <div class="testi-quote-mark">&rdquo;</div>
-                <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                <p class="testi-text">"Best place for your dream house. Ajay sir guided us with complete transparency.
-                    Found our perfect 2 BHK in Dombivali effortlessly."</p>
-                <div class="testi-author">
-                    <div class="testi-avatar">S</div>
-                    <div>
-                        <div class="testi-name">Sumit</div>
-                        <div class="testi-meta">Verified Buyer &middot; Dombivali</div>
+                <!-- Review 2 -->
+                <div class="testi-card mobile-marquee-item">
+                    <div class="testi-quote-mark">&rdquo;</div>
+                    <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="testi-text">"Best place for your dream house. Ajay sir guided us with complete
+                        transparency.
+                        Found our perfect 2 BHK in Dombivali effortlessly."</p>
+                    <div class="testi-author">
+                        <div class="testi-avatar">S</div>
+                        <div>
+                            <div class="testi-name">Sumit</div>
+                            <div class="testi-meta">Verified Buyer &middot; Dombivali</div>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Review 3 -->
-            <div class="testi-card">
-                <div class="testi-quote-mark">&rdquo;</div>
-                <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                <p class="testi-text">"The team is very professional. They understood our budget constraints and
-                    immediately focused on exactly what we needed. Highly recommended!"</p>
-                <div class="testi-author">
-                    <div class="testi-avatar">J</div>
-                    <div>
-                        <div class="testi-name">Jitendra</div>
-                        <div class="testi-meta">Verified Buyer &middot; Kalyan West</div>
+                <!-- Review 3 -->
+                <div class="testi-card mobile-marquee-item">
+                    <div class="testi-quote-mark">&rdquo;</div>
+                    <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="testi-text">"The team is very professional. They understood our budget constraints and
+                        immediately focused on exactly what we needed. Highly recommended!"</p>
+                    <div class="testi-author">
+                        <div class="testi-avatar">J</div>
+                        <div>
+                            <div class="testi-name">Jitendra</div>
+                            <div class="testi-meta">Verified Buyer &middot; Kalyan West</div>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Review 4 -->
-            <div class="testi-card">
-                <div class="testi-quote-mark">&rdquo;</div>
-                <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                <p class="testi-text">"Honest advice throughout the process. No hidden costs, no pressure to buy
-                    immediately. Just genuine help from a very reliable consultant."</p>
-                <div class="testi-author">
-                    <div class="testi-avatar">P</div>
-                    <div>
-                        <div class="testi-name">Prabhakar</div>
-                        <div class="testi-meta">Verified Buyer &middot; Ulhasnagar</div>
+                <!-- Review 4 -->
+                <div class="testi-card mobile-marquee-item">
+                    <div class="testi-quote-mark">&rdquo;</div>
+                    <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="testi-text">"Honest advice throughout the process. No hidden costs, no pressure to buy
+                        immediately. Just genuine help from a very reliable consultant."</p>
+                    <div class="testi-author">
+                        <div class="testi-avatar">P</div>
+                        <div>
+                            <div class="testi-name">Prabhakar</div>
+                            <div class="testi-meta">Verified Buyer &middot; Ulhasnagar</div>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Review 5 -->
-            <div class="testi-card">
-                <div class="testi-quote-mark">&rdquo;</div>
-                <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                <p class="testi-text">"As a first-time homebuyer, I was very nervous. Shagun Homes made the entire
-                    process so smooth, taking care of all the legal paperwork for us."</p>
-                <div class="testi-author">
-                    <div class="testi-avatar">N</div>
-                    <div>
-                        <div class="testi-name">Neha Sharma</div>
-                        <div class="testi-meta">First-Time Buyer &middot; Kalyan East</div>
+                <!-- Review 5 -->
+                <div class="testi-card mobile-marquee-item">
+                    <div class="testi-quote-mark">&rdquo;</div>
+                    <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="testi-text">"As a first-time homebuyer, I was very nervous. Shagun Homes made the entire
+                        process so smooth, taking care of all the legal paperwork for us."</p>
+                    <div class="testi-author">
+                        <div class="testi-avatar">N</div>
+                        <div>
+                            <div class="testi-name">Neha Sharma</div>
+                            <div class="testi-meta">First-Time Buyer &middot; Kalyan East</div>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Review 6 -->
-            <div class="testi-card">
-                <div class="testi-quote-mark">&rdquo;</div>
-                <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                <p class="testi-text">"I was looking for an investment property with good rental yield. Ajay Patil
-                    suggested a fantastic project in Dombivali that has already appreciated in value."</p>
-                <div class="testi-author">
-                    <div class="testi-avatar">R</div>
-                    <div>
-                        <div class="testi-name">Rahul K.</div>
-                        <div class="testi-meta">Property Investor &middot; Dombivali</div>
+                <!-- Review 6 -->
+                <div class="testi-card mobile-marquee-item">
+                    <div class="testi-quote-mark">&rdquo;</div>
+                    <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="testi-text">"I was looking for an investment property with good rental yield. Ajay Patil
+                        suggested a fantastic project in Dombivali that has already appreciated in value."</p>
+                    <div class="testi-author">
+                        <div class="testi-avatar">R</div>
+                        <div>
+                            <div class="testi-name">Rahul K.</div>
+                            <div class="testi-meta">Property Investor &middot; Dombivali</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1862,7 +1886,7 @@
     function renderReview(r, index) {
         const initial = r.name.trim().charAt(0).toUpperCase();
         const card = document.createElement('div');
-        card.className = 'testi-card';
+        card.className = 'testi-card mobile-marquee-item';
         card.style.position = 'relative';
         card.dataset.reviewIndex = index;
         card.innerHTML = `

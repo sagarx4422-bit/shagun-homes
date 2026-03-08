@@ -1034,6 +1034,18 @@
             padding: 0 24px;
         }
 
+        .navbar {
+            height: 70px !important;
+        }
+
+        .nav-logo img {
+            height: 50px !important;
+        }
+
+        .mobile-menu {
+            top: 70px !important;
+        }
+
         /* Mobile Scrollable Horizontal Carousels */
         .mobile-marquee {
             width: 100vw !important;
@@ -1068,6 +1080,15 @@
             flex-shrink: 0;
             display: flex;
             flex-direction: column;
+        }
+
+        /* Make Testimonial cards swipeable inside marquee wrapper */
+        .mobile-marquee-track>.testi-card {
+            width: 85vw !important;
+            min-width: 280px;
+            scroll-snap-align: center;
+            flex-shrink: 0;
+            margin-bottom: 0 !important;
         }
 
         .mobile-marquee-item.stat-card {
