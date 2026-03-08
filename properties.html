@@ -2207,56 +2207,77 @@
     });
 
     // Auto-scrolling Mobile Marquees (Swipeable + Infinite loop)
-    document.querySelectorAll('.mobile-marquee-track').forEach(track => {
-        const children = Array.from(track.children);
-        if (children.length === 0) return;
+    function initCarousels() {
+        document.querySelectorAll('.mobile-marquee-track').forEach(track => {
+            // Skip if already initialized
+            if (track.dataset.carouselInit) return;
+            track.dataset.carouselInit = 'true';
 
-        // Clone the items twice to ensure enough content to loop
-        children.forEach(child => {
-            const clone = child.cloneNode(true);
-            clone.removeAttribute('id');
-            track.appendChild(clone);
-        });
-        children.forEach(child => {
-            const clone = child.cloneNode(true);
-            clone.removeAttribute('id');
-            track.appendChild(clone);
-        });
+            if (track.children.length === 0) return;
 
-        let isTouching = false;
-        let isHovered = false;
+            const origChildren = Array.from(track.children);
 
-        track.addEventListener('mouseenter', () => isHovered = true);
-        track.addEventListener('mouseleave', () => { setTimeout(() => isHovered = false, 500) });
-        track.addEventListener('touchstart', () => isTouching = true, { passive: true });
-        track.addEventListener('touchend', () => {
-            // Wait a moment after touch before resuming auto-scroll to avoid fighting kinetic scrolling
-            setTimeout(() => {
-                isTouching = false;
-            }, 1200);
-        });
-
-        let scrollSpeed = 0.6; // Pixels per frame
-        let accumulator = 0;
-
-        function step() {
-            if (!isHovered && !isTouching && window.innerWidth < 768) {
-                accumulator += scrollSpeed;
-                if (accumulator >= 1) {
-                    track.scrollLeft += Math.floor(accumulator);
-                    accumulator -= Math.floor(accumulator);
+            // Record original content width BEFORE cloning
+            // Wait for layout, then measure
+            requestAnimationFrame(() => {
+                // Clone children 3 times for seamless looping
+                for (let i = 0; i < 3; i++) {
+                    origChildren.forEach(child => {
+                        const clone = child.cloneNode(true);
+                        clone.removeAttribute('id');
+                        clone.dataset.cloned = 'true';
+                        track.appendChild(clone);
+                    });
                 }
 
-                // If scrolled past the first third (1 copy of the items), reset to 0
-                if (track.scrollLeft >= track.scrollWidth / 3) {
-                    track.scrollLeft = 0;
-                }
-            }
-            requestAnimationFrame(step);
-        }
+                // Measure after cloning. The original set is 1/4 of total (3 extra copies).  
+                const loopPoint = track.scrollWidth / 4;
 
-        setTimeout(() => requestAnimationFrame(step), 1000);
-    });
+                let isTouching = false;
+
+                track.addEventListener('touchstart', () => { isTouching = true; }, { passive: true });
+                track.addEventListener('touchend', () => {
+                    setTimeout(() => {
+                        isTouching = false;
+                    }, 1500);
+                });
+                track.addEventListener('scroll', () => {
+                    // If manually swiped past the loop point, reset
+                    if (!isTouching && track.scrollLeft >= track.scrollWidth - track.offsetWidth - 10) {
+                        track.scrollLeft = 0;
+                    }
+                });
+
+                let accumulator = 0;
+                const scrollSpeed = 0.7;
+
+                function step() {
+                    if (!isTouching) {
+                        accumulator += scrollSpeed;
+                        if (accumulator >= 1) {
+                            track.scrollLeft += Math.floor(accumulator);
+                            accumulator -= Math.floor(accumulator);
+                        }
+
+                        // Seamlessly loop: when past original content, jump back invisibly
+                        if (track.scrollLeft >= loopPoint) {
+                            track.scrollLeft -= loopPoint;
+                        }
+                    }
+                    requestAnimationFrame(step);
+                }
+
+                setTimeout(() => requestAnimationFrame(step), 500);
+            });
+        });
+    }
+
+    // Run on page load (not DOMContentLoaded, to ensure images/layout is ready)
+    if (document.readyState === 'complete') {
+        initCarousels();
+    } else {
+        window.addEventListener('load', initCarousels);
+    }
 </script>
 </body>
 </html>
