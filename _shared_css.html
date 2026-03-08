@@ -982,6 +982,10 @@
         display: flex;
     }
 
+    .mobile-marquee-dup {
+        display: none !important;
+    }
+
     .mobile-menu a {
         font-size: 20px;
         font-weight: 500;
@@ -1013,6 +1017,45 @@
 
         .container {
             padding: 0 24px;
+        }
+
+        /* Mobile Marquee */
+        .mobile-marquee {
+            width: 100vw !important;
+            margin-left: -24px !important;
+            padding: 0 0 24px 0 !important;
+            overflow: hidden !important;
+            display: block !important;
+        }
+
+        .mobile-marquee-track {
+            display: flex !important;
+            width: max-content !important;
+            animation: marqueeScroll 15s linear infinite;
+            gap: 16px !important;
+            padding-left: 16px !important;
+            grid-template-columns: none !important;
+        }
+
+        .mobile-marquee-item {
+            flex: 0 0 260px !important;
+            min-width: 260px !important;
+            border-right: none !important;
+            height: 100% !important;
+        }
+
+        .mobile-marquee-dup {
+            display: block !important;
+        }
+
+        @keyframes marqueeScroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(calc(-50% - 8px));
+            }
         }
 
         .prop-grid,

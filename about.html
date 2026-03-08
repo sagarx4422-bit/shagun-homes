@@ -995,6 +995,10 @@
         display: flex;
     }
 
+    .mobile-marquee-dup {
+        display: none !important;
+    }
+
     .mobile-menu a {
         font-size: 20px;
         font-weight: 500;
@@ -1026,6 +1030,45 @@
 
         .container {
             padding: 0 24px;
+        }
+
+        /* Mobile Marquee */
+        .mobile-marquee {
+            width: 100vw !important;
+            margin-left: -24px !important;
+            padding: 0 0 24px 0 !important;
+            overflow: hidden !important;
+            display: block !important;
+        }
+
+        .mobile-marquee-track {
+            display: flex !important;
+            width: max-content !important;
+            animation: marqueeScroll 15s linear infinite;
+            gap: 16px !important;
+            padding-left: 16px !important;
+            grid-template-columns: none !important;
+        }
+
+        .mobile-marquee-item {
+            flex: 0 0 260px !important;
+            min-width: 260px !important;
+            border-right: none !important;
+            height: 100% !important;
+        }
+
+        .mobile-marquee-dup {
+            display: block !important;
+        }
+
+        @keyframes marqueeScroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(calc(-50% - 8px));
+            }
         }
 
         .prop-grid,
@@ -1159,9 +1202,9 @@
 <!-- Stats Row -->
 <section
     style="border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); padding: 60px 0; background: var(--bg-secondary);">
-    <div class="container reveal stat-group">
-        <div style="display: grid; grid-template-columns: repeat(4, 1fr);">
-            <div style="text-align: center; border-right: 1px solid var(--border-color);">
+    <div class="container reveal stat-group mobile-marquee">
+        <div class="mobile-marquee-track" style="display: grid; grid-template-columns: repeat(4, 1fr);">
+            <div class="mobile-marquee-item" style="text-align: center; border-right: 1px solid var(--border-color);">
                 <div
                     style="font-family: var(--font-serif); font-size: 52px; font-style: italic; color: var(--brand-green); line-height: 1;">
                     <span class="stat-num-val" data-target="100">0</span>%
@@ -1169,7 +1212,7 @@
                 <div style="font-size: 13px; font-weight: 500; color: var(--text-muted); margin-top: 8px;">Satisfaction
                     Clients</div>
             </div>
-            <div style="text-align: center; border-right: 1px solid var(--border-color);">
+            <div class="mobile-marquee-item" style="text-align: center; border-right: 1px solid var(--border-color);">
                 <div
                     style="font-family: var(--font-serif); font-size: 52px; font-style: italic; color: var(--brand-green); line-height: 1;">
                     <span class="stat-num-val" data-target="500">0</span>+
@@ -1177,7 +1220,7 @@
                 <div style="font-size: 13px; font-weight: 500; color: var(--text-muted); margin-top: 8px;">Property
                     Sells</div>
             </div>
-            <div style="text-align: center; border-right: 1px solid var(--border-color);">
+            <div class="mobile-marquee-item" style="text-align: center; border-right: 1px solid var(--border-color);">
                 <div
                     style="font-family: var(--font-serif); font-size: 52px; font-style: italic; color: var(--brand-green); line-height: 1;">
                     <span class="stat-num-val" data-target="150">0</span>+
@@ -1185,7 +1228,43 @@
                 <div style="font-size: 13px; font-weight: 500; color: var(--text-muted); margin-top: 8px;">Cities
                     Covered</div>
             </div>
-            <div style="text-align: center;">
+            <div class="mobile-marquee-item" style="text-align: center;">
+                <div
+                    style="font-family: var(--font-serif); font-size: 52px; font-style: italic; color: var(--brand-green); line-height: 1;">
+                    <span class="stat-num-val" data-target="12">0</span>+
+                </div>
+                <div style="font-size: 13px; font-weight: 500; color: var(--text-muted); margin-top: 8px;">Years of
+                    Trust</div>
+            </div>
+            <!-- Duplicates for mobile carousel -->
+            <div class="mobile-marquee-item mobile-marquee-dup"
+                style="text-align: center; border-right: 1px solid var(--border-color);">
+                <div
+                    style="font-family: var(--font-serif); font-size: 52px; font-style: italic; color: var(--brand-green); line-height: 1;">
+                    <span class="stat-num-val" data-target="100">0</span>%
+                </div>
+                <div style="font-size: 13px; font-weight: 500; color: var(--text-muted); margin-top: 8px;">Satisfaction
+                    Clients</div>
+            </div>
+            <div class="mobile-marquee-item mobile-marquee-dup"
+                style="text-align: center; border-right: 1px solid var(--border-color);">
+                <div
+                    style="font-family: var(--font-serif); font-size: 52px; font-style: italic; color: var(--brand-green); line-height: 1;">
+                    <span class="stat-num-val" data-target="500">0</span>+
+                </div>
+                <div style="font-size: 13px; font-weight: 500; color: var(--text-muted); margin-top: 8px;">Property
+                    Sells</div>
+            </div>
+            <div class="mobile-marquee-item mobile-marquee-dup"
+                style="text-align: center; border-right: 1px solid var(--border-color);">
+                <div
+                    style="font-family: var(--font-serif); font-size: 52px; font-style: italic; color: var(--brand-green); line-height: 1;">
+                    <span class="stat-num-val" data-target="150">0</span>+
+                </div>
+                <div style="font-size: 13px; font-weight: 500; color: var(--text-muted); margin-top: 8px;">Cities
+                    Covered</div>
+            </div>
+            <div class="mobile-marquee-item mobile-marquee-dup" style="text-align: center;">
                 <div
                     style="font-family: var(--font-serif); font-size: 52px; font-style: italic; color: var(--brand-green); line-height: 1;">
                     <span class="stat-num-val" data-target="12">0</span>+
@@ -1203,53 +1282,110 @@
         <div class="section-header" style="text-align: center; margin-bottom: 60px;">
             <h2>What We Stand For</h2>
         </div>
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;">
-            <!-- Value 1 -->
-            <div style="background: white; border: 1px solid var(--border-color); border-radius: 16px; padding: 40px; box-shadow: var(--shadow-card); text-align: center; transition: 0.3s;"
-                onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='var(--shadow-hover)'"
-                onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-card)'">
-                <div
-                    style="background: var(--brand-light); width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px;">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--brand-green)"
-                        stroke-width="2">
-                        <path
-                            d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3" />
-                    </svg>
+        <div class="mobile-marquee" style="width: 100%;">
+            <div class="mobile-marquee-track" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;">
+                <!-- Value 1 -->
+                <div class="mobile-marquee-item"
+                    style="background: white; border: 1px solid var(--border-color); border-radius: 16px; padding: 40px; box-shadow: var(--shadow-card); text-align: center; transition: 0.3s;"
+                    onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='var(--shadow-hover)'"
+                    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-card)'">
+                    <div
+                        style="background: var(--brand-light); width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px;">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--brand-green)"
+                            stroke-width="2">
+                            <path
+                                d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3" />
+                        </svg>
+                    </div>
+                    <h3 style="margin-bottom: 16px;">Honesty First</h3>
+                    <p style="font-size: 15px; color: var(--text-muted); line-height: 1.7;">We never push a property
+                        that
+                        doesn't fit your needs. Zero pressure, zero hidden charges. Transparency is our core value.</p>
                 </div>
-                <h3 style="margin-bottom: 16px;">Honesty First</h3>
-                <p style="font-size: 15px; color: var(--text-muted); line-height: 1.7;">We never push a property that
-                    doesn't fit your needs. Zero pressure, zero hidden charges. Transparency is our core value.</p>
-            </div>
-            <!-- Value 2 -->
-            <div style="background: white; border: 1px solid var(--border-color); border-radius: 16px; padding: 40px; box-shadow: var(--shadow-card); text-align: center; transition: 0.3s;"
-                onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='var(--shadow-hover)'"
-                onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-card)'">
-                <div
-                    style="background: var(--brand-light); width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px;">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--brand-green)"
-                        stroke-width="2">
-                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                    </svg>
+                <!-- Value 2 -->
+                <div class="mobile-marquee-item"
+                    style="background: white; border: 1px solid var(--border-color); border-radius: 16px; padding: 40px; box-shadow: var(--shadow-card); text-align: center; transition: 0.3s;"
+                    onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='var(--shadow-hover)'"
+                    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-card)'">
+                    <div
+                        style="background: var(--brand-light); width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px;">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--brand-green)"
+                            stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                        </svg>
+                    </div>
+                    <p style="font-size: 15px; color: var(--text-muted); line-height: 1.7;">Every property we sell is
+                        legally verified. We rigorously verify all legal documents before recommending any property to
+                        you.</p>
                 </div>
-                <p style="font-size: 15px; color: var(--text-muted); line-height: 1.7;">Every property we sell is
-                    legally verified. We rigorously verify all legal documents before recommending any property to
-                    you.</p>
-            </div>
-            <!-- Value 3 -->
-            <div style="background: white; border: 1px solid var(--border-color); border-radius: 16px; padding: 40px; box-shadow: var(--shadow-card); text-align: center; transition: 0.3s;"
-                onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='var(--shadow-hover)'"
-                onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-card)'">
-                <div
-                    style="background: var(--brand-light); width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px;">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--brand-green)"
-                        stroke-width="2">
-                        <circle cx="12" cy="12" r="10" />
-                        <polyline points="12 6 12 12 16 14" />
-                    </svg>
+                <!-- Value 3 -->
+                <div class="mobile-marquee-item"
+                    style="background: white; border: 1px solid var(--border-color); border-radius: 16px; padding: 40px; box-shadow: var(--shadow-card); text-align: center; transition: 0.3s;"
+                    onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='var(--shadow-hover)'"
+                    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-card)'">
+                    <div
+                        style="background: var(--brand-light); width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px;">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--brand-green)"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="10" />
+                            <polyline points="12 6 12 12 16 14" />
+                        </svg>
+                    </div>
+                    <h3 style="margin-bottom: 16px;">Always Available</h3>
+                    <p style="font-size: 15px; color: var(--text-muted); line-height: 1.7;">Open 7 days a week, 10am to
+                        10pm. Ajay Patil personally handles all client calls and accompanies you on all site visits.</p>
                 </div>
-                <h3 style="margin-bottom: 16px;">Always Available</h3>
-                <p style="font-size: 15px; color: var(--text-muted); line-height: 1.7;">Open 7 days a week, 10am to
-                    10pm. Ajay Patil personally handles all client calls and accompanies you on all site visits.</p>
+                <!-- Duplicate Value 1 -->
+                <div class="mobile-marquee-item mobile-marquee-dup"
+                    style="background: white; border: 1px solid var(--border-color); border-radius: 16px; padding: 40px; box-shadow: var(--shadow-card); text-align: center; transition: 0.3s;"
+                    onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='var(--shadow-hover)'"
+                    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-card)'">
+                    <div
+                        style="background: var(--brand-light); width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px;">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--brand-green)"
+                            stroke-width="2">
+                            <path
+                                d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3" />
+                        </svg>
+                    </div>
+                    <h3 style="margin-bottom: 16px;">Honesty First</h3>
+                    <p style="font-size: 15px; color: var(--text-muted); line-height: 1.7;">We never push a property
+                        that
+                        doesn't fit your needs. Zero pressure, zero hidden charges. Transparency is our core value.</p>
+                </div>
+                <!-- Duplicate Value 2 -->
+                <div class="mobile-marquee-item mobile-marquee-dup"
+                    style="background: white; border: 1px solid var(--border-color); border-radius: 16px; padding: 40px; box-shadow: var(--shadow-card); text-align: center; transition: 0.3s;"
+                    onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='var(--shadow-hover)'"
+                    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-card)'">
+                    <div
+                        style="background: var(--brand-light); width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px;">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--brand-green)"
+                            stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                        </svg>
+                    </div>
+                    <p style="font-size: 15px; color: var(--text-muted); line-height: 1.7;">Every property we sell is
+                        legally verified. We rigorously verify all legal documents before recommending any property to
+                        you.</p>
+                </div>
+                <!-- Duplicate Value 3 -->
+                <div class="mobile-marquee-item mobile-marquee-dup"
+                    style="background: white; border: 1px solid var(--border-color); border-radius: 16px; padding: 40px; box-shadow: var(--shadow-card); text-align: center; transition: 0.3s;"
+                    onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='var(--shadow-hover)'"
+                    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-card)'">
+                    <div
+                        style="background: var(--brand-light); width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px;">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--brand-green)"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="10" />
+                            <polyline points="12 6 12 12 16 14" />
+                        </svg>
+                    </div>
+                    <h3 style="margin-bottom: 16px;">Always Available</h3>
+                    <p style="font-size: 15px; color: var(--text-muted); line-height: 1.7;">Open 7 days a week, 10am to
+                        10pm. Ajay Patil personally handles all client calls and accompanies you on all site visits.</p>
+                </div>
             </div>
         </div>
     </div>
