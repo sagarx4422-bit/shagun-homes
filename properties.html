@@ -1034,32 +1034,38 @@
             padding: 0 24px;
         }
 
-        /* Mobile Marquee */
+        /* Mobile Scrollable Horizontal Carousels */
         .mobile-marquee {
             width: 100vw !important;
             margin-left: -24px !important;
             padding: 0 0 24px 0 !important;
-            overflow: hidden !important;
             display: block !important;
+            overflow: hidden !important;
+            /* Hide scrollbars on container */
         }
 
         .mobile-marquee-track {
             display: flex !important;
-            width: max-content !important;
-            animation: marqueeScroll 15s linear infinite;
             gap: 16px !important;
-            padding-left: 16px !important;
-            grid-template-columns: none !important;
+            padding: 0 24px !important;
+            overflow-x: auto !important;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            /* Firefox */
         }
 
-        .mobile-marquee-track:hover,
-        .mobile-marquee-track:active {
-            animation-play-state: paused;
+        .mobile-marquee-track::-webkit-scrollbar {
+            display: none;
+            /* WebKit */
         }
 
         .mobile-marquee-item {
+            scroll-snap-align: center;
             border-right: none !important;
             height: 100% !important;
+            flex-shrink: 0;
             display: flex;
             flex-direction: column;
         }
@@ -1076,17 +1082,7 @@
         }
 
         .mobile-marquee-dup {
-            display: block !important;
-        }
-
-        @keyframes marqueeScroll {
-            0% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(calc(-50% - 8px));
-            }
+            display: none !important;
         }
 
         .prop-grid,
