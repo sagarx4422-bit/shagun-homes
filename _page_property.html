@@ -12,7 +12,7 @@
 <!-- Property Gallery -->
 <section style="padding: 0 0 60px 0;">
     <div class="container">
-        <div style="display: grid; grid-template-columns: 60% 38%; gap: 2%; height: 500px;">
+        <div class="gallery-grid">
             <!-- Main Image -->
             <div style="width: 100%; height: 100%; border-radius: 16px; overflow: hidden; position: relative;">
                 <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80" alt="Main View"
@@ -48,7 +48,7 @@
 
 <!-- Details & Sidebar Split -->
 <section style="padding: 0 0 100px 0;">
-    <div class="container" style="display: grid; grid-template-columns: 58% 38%; gap: 4%; align-items: start;">
+    <div class="container details-grid">
 
         <!-- Left Details -->
         <div>
@@ -72,8 +72,7 @@
             </div>
 
             <!-- Tabs -->
-            <div
-                style="display: flex; gap: 32px; border-bottom: 1px solid var(--border-color); margin-bottom: 32px; overflow-x: auto; scrollbar-width: none;">
+            <div class="tabs-container">
                 <button class="tab-btn active" data-tab="overview">Overview</button>
                 <button class="tab-btn" data-tab="features">Features</button>
                 <button class="tab-btn" data-tab="location">Location</button>
@@ -95,8 +94,7 @@
 
                 <!-- Specs Grid -->
                 <h3 style="margin-bottom: 20px;">Property Overview</h3>
-                <div
-                    style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; background: var(--brand-light); border-radius: 12px; padding: 24px; margin-bottom: 40px;">
+                <div class="specs-grid">
                     <div>
                         <div
                             style="font-size: 12px; color: var(--text-muted); text-transform: uppercase; font-weight: 600;">
@@ -141,7 +139,7 @@
             <div id="tab-features" class="tab-content" style="display: none;">
                 <!-- Amenities -->
                 <h3 style="margin-bottom: 20px;">Top Amenities</h3>
-                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-bottom: 40px;">
+                <div class="amenities-grid">
                     <div style="text-align: center;">
                         <div
                             style="background:var(--bg-secondary);width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 8px;">
@@ -454,8 +452,38 @@
     </div>
 </section>
 
-<!-- Tabs & styling for tabs -->
 <style>
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: 60% 38%;
+        gap: 2%;
+        height: 500px;
+    }
+
+    .details-grid {
+        display: grid;
+        grid-template-columns: 58% 38%;
+        gap: 4%;
+        align-items: start;
+    }
+
+    .specs-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        background: var(--brand-light);
+        border-radius: 12px;
+        padding: 24px;
+        margin-bottom: 40px;
+    }
+
+    .amenities-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+        margin-bottom: 40px;
+    }
+
     .tab-btn {
         background: none;
         border: none;
@@ -478,17 +506,49 @@
         border-bottom-color: var(--brand-green);
     }
 
+    /* Tabs Container scrolling fix on mobile */
+    .tabs-container {
+        display: flex;
+        gap: 32px;
+        border-bottom: 1px solid var(--border-color);
+        margin-bottom: 32px;
+        overflow-x: auto;
+        scrollbar-width: none;
+        width: 100%;
+    }
+
+    .tabs-container::-webkit-scrollbar {
+        display: none;
+    }
+
     @media (max-width: 900px) {
-        .container>div[style*="grid-template-columns: 58% 38%"] {
+        .details-grid {
             grid-template-columns: 1fr;
+            gap: 40px;
         }
     }
 
     @media (max-width: 768px) {
-        .container>div[style*="grid-template-columns: 60% 38%"] {
+        .gallery-grid {
             grid-template-columns: 1fr;
             grid-template-rows: 300px min-content;
             height: auto;
+            gap: 16px;
+        }
+
+        .specs-grid {
+            grid-template-columns: 1fr;
+            padding: 20px;
+        }
+
+        .amenities-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        /* Ensure specific elements don't push width horizontally */
+        body {
+            overflow-x: hidden;
         }
     }
 </style>
