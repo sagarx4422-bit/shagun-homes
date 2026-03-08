@@ -2097,9 +2097,9 @@
 
     // Auto-scrolling Mobile Marquees (Swipeable + Infinite loop)
     function initCarousels() {
+        if (window.innerWidth > 768) return; // Only run on mobile/tablet
+
         document.querySelectorAll('.mobile-marquee-track').forEach(track => {
-            // Skip if already initialized or if on desktop (scrollWidth <= offsetWidth)
-            if (track.dataset.carouselInit) return;
 
             const children = Array.from(track.children);
             if (children.length === 0) return;

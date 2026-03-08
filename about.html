@@ -1353,42 +1353,6 @@
                 <div style="font-size: 13px; font-weight: 500; color: var(--text-muted); margin-top: 8px;">Years of
                     Trust</div>
             </div>
-            <!-- Duplicates for mobile carousel -->
-            <div class="mobile-marquee-item stat-card mobile-marquee-dup"
-                style="text-align: center; border-right: 1px solid var(--border-color);">
-                <div
-                    style="font-family: var(--font-serif); font-size: 52px; font-style: italic; color: var(--brand-green); line-height: 1;">
-                    <span class="stat-num-val" data-target="100">0</span>%
-                </div>
-                <div style="font-size: 13px; font-weight: 500; color: var(--text-muted); margin-top: 8px;">Satisfaction
-                    Clients</div>
-            </div>
-            <div class="mobile-marquee-item stat-card mobile-marquee-dup"
-                style="text-align: center; border-right: 1px solid var(--border-color);">
-                <div
-                    style="font-family: var(--font-serif); font-size: 52px; font-style: italic; color: var(--brand-green); line-height: 1;">
-                    <span class="stat-num-val" data-target="500">0</span>+
-                </div>
-                <div style="font-size: 13px; font-weight: 500; color: var(--text-muted); margin-top: 8px;">Property
-                    Sells</div>
-            </div>
-            <div class="mobile-marquee-item stat-card mobile-marquee-dup"
-                style="text-align: center; border-right: 1px solid var(--border-color);">
-                <div
-                    style="font-family: var(--font-serif); font-size: 52px; font-style: italic; color: var(--brand-green); line-height: 1;">
-                    <span class="stat-num-val" data-target="150">0</span>+
-                </div>
-                <div style="font-size: 13px; font-weight: 500; color: var(--text-muted); margin-top: 8px;">Cities
-                    Covered</div>
-            </div>
-            <div class="mobile-marquee-item value-card mobile-marquee-dup" style="text-align: center;">
-                <div
-                    style="font-family: var(--font-serif); font-size: 52px; font-style: italic; color: var(--brand-green); line-height: 1;">
-                    <span class="stat-num-val" data-target="12">0</span>+
-                </div>
-                <div style="font-size: 13px; font-weight: 500; color: var(--text-muted); margin-top: 8px;">Years of
-                    Trust</div>
-            </div>
         </div>
     </div>
 </section>
@@ -1862,9 +1826,9 @@
 
     // Auto-scrolling Mobile Marquees (Swipeable + Infinite loop)
     function initCarousels() {
+        if (window.innerWidth > 768) return; // Only run on mobile/tablet
+
         document.querySelectorAll('.mobile-marquee-track').forEach(track => {
-            // Skip if already initialized or if on desktop (scrollWidth <= offsetWidth)
-            if (track.dataset.carouselInit) return;
 
             const children = Array.from(track.children);
             if (children.length === 0) return;
